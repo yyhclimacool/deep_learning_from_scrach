@@ -14,16 +14,16 @@ class SimpleNet:
 
     def predict(self, x):
         y = np.dot(x, self.W)
-        print("SimpleNet.predict result:")
-        print(y)
+        #print("SimpleNet.predict result:")
+        #print(y)
         return y
 
     def loss(self, x, t):
         y = self.predict(x)
         z = softmax(y)
         error = cross_entropy_error(z, t)
-        print("SimpleNet.loss result:")
-        print(error)
+        #print("SimpleNet.loss result:")
+        #print(error)
         return error
 
     def numerical_gradient(self, x, t):
