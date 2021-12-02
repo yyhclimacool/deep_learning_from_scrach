@@ -19,7 +19,7 @@ def mnist_mini_batch():
     batch_size = 100
     lr = 0.1
 
-    iter_per_epoch = max(train_size/batch_size, 1)
+    iter_per_epoch = max(train_size/batch_size, 1) # 60000/100 = 600
 
     #loss_record_list = []
     train_acc_list = []
@@ -41,6 +41,7 @@ def mnist_mini_batch():
             test_acc = net.accuracy(x_test, t_test)
             train_acc_list.append(train_acc)
             test_acc_list.append(test_acc)
+            print("train acc: " + str(train_acc) + ", test acc: " + str(test_acc))
     for i in range(len(train_acc_list)):
         print("train_acc: " + str(train_acc_list[i]) + ", test_acc: " + str(test_acc_list[i]))
 
