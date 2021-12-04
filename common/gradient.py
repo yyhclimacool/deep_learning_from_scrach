@@ -3,7 +3,7 @@
 import numpy as np
 
 def numerical_gradient_1d(f, x):
-    h = 1e-5
+    h = 1e-4
     grad = np.zeros_like(x)
     for i in range(x.size):
         tmp_val = x[i]
@@ -26,7 +26,7 @@ def numerical_gradient_2d(f, x):
         return grad
 
 def numerical_gradient(f, x):
-    h = 1e-5
+    h = 1e-4
     grad = np.zeros_like(x)
     it = np.nditer(x, flags=['multi_index'], op_flags=['readwrite'])
     while not it.finished:

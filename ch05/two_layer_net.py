@@ -2,8 +2,8 @@
 
 import sys, os
 sys.path.append(os.pardir)
-from common.layers import *
-from common.gradient import numerical_gradient
+from common.layers_origin import *
+from common.gradient_origin import numerical_gradient
 from collections import OrderedDict
 
 class TwoLayerNet:
@@ -18,6 +18,7 @@ class TwoLayerNet:
         self.layers['Affine1'] = Affine(self.params['w1'], self.params['b1'])
         self.layers['Relu1'] = Relu()
         self.layers['Affine2'] = Affine(self.params['w2'], self.params['b2'])
+        
         self.last_layer = SoftmaxWithLoss()
 
     def predict(self, x):
@@ -35,7 +36,7 @@ class TwoLayerNet:
         # don't need softmaxwithloss layer
         y = np.argmax(y, axis=1)
         if t.ndim != 1 : t = np.argmax(t, axis=1)
-        accuracy = np.sum(y==t)/float(t.shape[0])
+        accuracy = np.sum(y==t)/float(x.shape[0])
         return accuracy
 
     def numerical_gradient(self, x, t):
